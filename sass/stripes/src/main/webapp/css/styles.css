@@ -26,6 +26,13 @@
   100% {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); } }
+@keyframes skewAnimation {
+  0% {
+    -webkit-transform: skew(30);
+    transform: skew(30); }
+  100% {
+    -webkit-transform: skew(0);
+    transform: skew(0); } }
 * {
   box-sizing: border-box;
   margin: 0;
@@ -63,9 +70,12 @@ body {
   background: rgba(255, 255, 255, 0.1);
   content: "";
   z-index: 2;
-  transform: skew(30deg);
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  transform: skew(30deg);
+  -webkit-transform: skew(30deg);
+  transition-duration: 0.7;
+  transition: cubic-bezier(0.23, 1, 0.32, 1); }
 .strip__content {
   width: 100%;
   height: 100%;
@@ -82,9 +92,9 @@ body {
   color: #fff; }
 
 .strips__strip:hover .strip__content::before {
-  transform: skew(0);
-  transition-timing-function: cubic-bezier(0.29, 1, 0.32, 1);
-  transition-duration: 0.7; }
+  animation-name: skewAnimation;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s; }
 
 .strips__strip:nth-child(1n) {
   background-color: #244F75; }
