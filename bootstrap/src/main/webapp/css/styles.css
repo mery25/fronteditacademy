@@ -1,0 +1,59 @@
+
+.bg-green-light {
+    background-color: #F2F3E9;
+}
+
+
+body {
+    font-size: 1rem;
+}
+
+/* NAVBAR */
+
+.navbar-brand {
+    max-width: 70%;
+    padding: 6px 0 6px 16px;
+}
+
+.navbar-toggler {
+    margin-right: 0.7rem;
+}
+
+.navbar-toggler:focus {
+    outline: 1px dotted;
+    outline: 5px auto #92644C;
+}
+#navbarSupportedContent {
+    transition: height 1s ease;
+} 
+
+.nav-item {
+    padding: 0 12px;
+}
+.nav-item:hover {
+    background-color: #FBFCF8;
+}
+
+.nav-link {
+    color: #92644C !important;
+    font-family: 'Oxygen', sans-serif;
+    text-align: center;
+    line-height: 3;
+}
+
+
+@media (min-width: 576px) { 
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) { 
+
+}
+
+@media (min-width: 1200px) { 
+
+}
