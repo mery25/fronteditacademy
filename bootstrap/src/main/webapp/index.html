@@ -1,49 +1,152 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- OXYGEN FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" >
+  <!-- OXYGEN FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <title>AwamakiART</title>
-  </head>
-  <body>
-    <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-green-light p-0">
-      <a class="navbar-brand" href="#">
-        <img class='img-fluid' src="images/logo3.png" alt="Logo">
-      </a>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">How it works</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Products</a>
-          </li>
-        </ul>
+  <title>AwamakiART</title>
+</head>
+
+<body>
+  <nav id="navbar" class="navbar fixed-top navbar-expand-md navbar-light bg-green-light p-0">
+    <a class="navbar-brand pl-2 py-1 mr-1" href="#">
+      <img class='img-fluid' src="images/logo3.png" alt="Logo">
+    </a>
+
+    <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active px-3">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">How it works</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Products</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- INTRODUCTION SECTION -->
+  <section id="introduction">
+    <div class="container-fluid">
+      <div class="absolute-wrapper">
+        <img src="images/incaart.png" alt="" id="bg-image" class="d-block mx-auto img-fluid">
       </div>
-    </nav>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
+      <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center">
+        <h1 id="title" class="text-center text-white p-4 mt-5">Choose more than<br>a gift...<br>Collaborate with<br>a
+          cause</h1>
+        <form id="introduction-form" class="p-4 m-0 my-4">
+          <p>Do you love handmade art?<br />Do you create handmade art?<br />Will send you more information!</p>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          </div>
+          <button type="submit" class="btn btn-light btn-block">I want to know more!</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-  </body>
+  <!-- FEATURES SECTION -->
+  <section id="features" class="d-flex flex-column py-5 px-5">
+    <div class="container-fluid">
+      <div class="d-flex flex-column justify-content-start align-items-center">
+        <div class="feature d-flex flex-row w-100">
+          <div class="icon d-none d-sm-inline-block">
+            <img src="images/fairtrade.png" alt="Fairtrade" class="mw-100 mh-auto">
+          </div>
+          <div class="desc">
+            <h2>Fair Trade</h2>
+            <p>Ethical buying. Using this platform you ensure you are helping artisans, not chains or big companies.</p>
+          </div>
+        </div>
+        <div class="feature d-flex flex-row w-100">
+          <div class="icon d-none d-sm-inline-block">
+            <img src="images/charitable.png" alt="Charitable" class="mw-100 mh-auto">
+          </div>
+          <div class="desc">
+            <h2>Conscious Shopping</h2>
+            <p>You are not buying a gift, you are helping a cause. You are investing in a story which touch your heart.
+            </p>
+          </div>
+        </div>
+        <div class="feature d-flex flex-row w-100">
+          <div class="icon d-none d-sm-inline-block">
+            <img src="images/safepayment1.png" alt="Safe payment" class="mw-100 mh-auto">
+          </div>
+          <div class="desc">
+            <h2>Safe Payment</h2>
+            <p>Your payment will be done by paypal to ensure your money until your shipping has arrived.</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- HOWITWORKS SECTION -->
+  <section class="px-5" id="howitworks">
+    <div class="container-fluid">
+      <div class="row d-flex flex-column flex-sm-row">
+        <div class="col">
+          <article class="step-container my-0 mx-2 py-5 px-1">
+            <img src="images/one.svg" alt="One" class="step-img d-block mx-auto mb-5">
+            <p class="text-center">Take a look at our artisans' products. Choose any product that takes your
+              attention.</p>
+          </article>
+        </div>
+        <div class="col w-22">
+          <article class="step-container my-0 mx-2 py-5 px-1">
+            <img src="images/two.svg" alt="Two" class="step-img d-block mx-auto mb-5">
+            <p class="text-center">Go to the artisans' profile to know its story and see all its products.</p>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="step-container my-0 mx-2 py-5 px-1">
+            <img src="images/three.svg" alt="Three" class="step-img d-block mx-auto mb-5">
+            <p class="text-center">Contact the artisan if you want to know more information about him/her and to get
+              a personalised work.</p>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="step-container my-0 mx-2 py-5 px-1">
+            <img src="images/four.svg" alt="Four" class="step-img d-block mx-auto mb-5">
+            <p class="text-center">Buy your personalised product.</p>
+          </article>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
+
 </html>
