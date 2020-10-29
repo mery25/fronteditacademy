@@ -113,7 +113,11 @@ section {
     height: auto;
 }
 .card-artisan {
+    position: absolute;
     width: 45%;
+    top: -3rem;
+    left: -1rem;
+    transition: transform .2s;
 }
 .card-artisan img {
     width: 100%;
@@ -121,11 +125,11 @@ section {
 }
 
 .card-artisan .card-title {
-    font-size: .8em;
     position: absolute;
     bottom: 0.7rem;
     width: 100%;
     text-align: center;
+    font-size: .8em;
     font-family: serif;
     font-style: oblique;
     font-weight: bolder;
@@ -135,10 +139,9 @@ section {
     padding: 0;
     bottom: -1rem;
 }
-.artisan-container {
-    position: absolute;
-    top: -3rem;
-    left: -1rem;
+
+.card-artisan:hover {
+    transform: scale(1.1);
 }
 
 /* FOOTER */
@@ -154,10 +157,6 @@ section {
         min-width: 12rem;
     }
     .card-artisan {
-        width: 45%;
-    }
-    .artisan-container {
-        position: absolute;
         left: -4rem;
     }
 }
