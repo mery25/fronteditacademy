@@ -8,6 +8,10 @@ body {
     font-size: 1rem;
 }
 
+section {
+    overflow: hidden
+}
+
 /* NAVBAR */
 .navbar-brand {
     max-width: 70%;;
@@ -52,7 +56,6 @@ body {
     border-radius: 1rem;
     color: #fff;
     z-index: 2;
-    overflow: hidden;
     max-width: 277px;
 }
 
@@ -99,8 +102,68 @@ body {
     height: 6rem;
     width: 6rem;
 }
-@media (min-width: 576px) { 
 
+/* PRODUCTS SECTION */
+.card-product {
+    max-width: 15rem;
+    min-width: 9rem;
+}
+.card img {
+    width: 100%;
+    height: auto;
+}
+.card-artisan {
+    width: 45%;
+}
+.card-artisan img {
+    width: 100%;
+    height: auto;
+}
+
+.card-artisan .card-title {
+    font-size: .8em;
+    position: absolute;
+    bottom: 0.7rem;
+    width: 100%;
+    text-align: center;
+    font-family: serif;
+    font-style: oblique;
+    font-weight: bolder;
+}
+
+.card-artisan .card-img-overlay {
+    padding: 0;
+    bottom: -1rem;
+}
+.artisan-container {
+    position: absolute;
+    top: -3rem;
+    left: -1rem;
+}
+/* .floating-card {
+    float: left;
+    margin: 5px;
+    max-width: 300px;
+
+} */
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+@media (min-width: 576px) { 
+    .card-product {
+        max-width: 21%;
+        min-width: 12rem;
+    }
+    .card-artisan {
+        width: 45%;
+    }
+    .artisan-container {
+        position: absolute;
+        left: -4rem;
+    }
 }
 
 @media (min-width: 768px) {
