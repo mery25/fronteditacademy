@@ -140,18 +140,14 @@ section {
     top: -3rem;
     left: -1rem;
 }
-/* .floating-card {
-    float: left;
-    margin: 5px;
-    max-width: 300px;
 
-} */
+/* FOOTER */
+.footer-menu a i {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 1rem 1.5rem;
+}
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
 @media (min-width: 576px) { 
     .card-product {
         max-width: 21%;
