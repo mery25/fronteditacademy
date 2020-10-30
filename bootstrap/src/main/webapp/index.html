@@ -68,8 +68,8 @@
         <form id="introduction-form" class="p-4 m-0 my-4">
           <p>Do you love handmade art?<br />Do you create handmade art?<br />Will send you more information!</p>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            <label for="emailInput">Email address</label>
+            <input type="email" class="form-control" id="emailInput" placeholder="Enter email">
           </div>
           <button type="submit" class="btn btn-light btn-block">I want to know more!</button>
         </form>
@@ -247,16 +247,16 @@
           <form action="#" class="my-4">
             <h4>Get in touch!</h4>
             <div class="form-group">
-              <label for="exampleInputName">Name</label>
-              <input type="name" class="form-control" id="exampleInputName" placeholder="Enter name">
+              <label for="contactNameInput">Name</label>
+              <input type="name" class="form-control" id="contactNameInput" placeholder="Enter name">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail2">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+              <label for="contactEmailInput">Email address</label>
+              <input type="email" class="form-control" id="contactEmailInput" placeholder="Enter email">
             </div>
             <div class="form-group" class="contact-message">
-              <label for="exampleFormControlTextarea1">Message</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" cols="30" rows="5"></textarea>
+              <label for="contactMessageInput">Message</label>
+              <textarea class="form-control" id="contactMessageInput" cols="30" rows="5"></textarea>
             </div>
             <button type="submit" class="btn btn-light">Submit</button>
           </form>
@@ -279,14 +279,14 @@
         <div class="modal-body mx-3 pl-0 pr-3">
           <div class="md-form mb-5 pl-0 pr-3 pl-sm-4 pr-sm-5">
             <i class="fas fa-envelope prefix grey-text"></i>
-            <input type="email" id="defaultForm-email" class="form-control validate" required pattern='\S+' placeholder="Your email">
-            <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
+            <input type="email" id="loginEmailInput" class="form-control validate" required pattern='\S+' placeholder="Your email">
+            <label data-error="wrong" data-success="right" for="loginEmailInput">Your email</label>
           </div>
 
           <div class="md-form mb-5 pl-0 pr-3 pl-sm-4 pr-sm-5">
             <i class="fas fa-lock prefix grey-text"></i>
-            <input type="password" id="defaultForm-pass" class="form-control validate" required pattern='\S+' placeholder="Your password">
-            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+            <input type="password" id="loginPasswInput" class="form-control validate" required pattern='\S+' placeholder="Your password">
+            <label data-error="wrong" data-success="right" for="loginPasswInput">Your password</label>
           </div>
         </div>
 
@@ -305,6 +305,11 @@
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script>
+    $('#loginModal').on('shown.bs.modal', function () {
+      $('#loginEmailInput').trigger('focus')
+    })
+  </script>
 
 </body>
 

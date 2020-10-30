@@ -236,9 +236,9 @@ section {
 }
 
 .md-form input:focus, .md-form input:placeholder-shown { 
-    border-bottom: 1px solid #6DAFE0;
-    -webkit-box-shadow: 0 1px 0 0 #6DAFE0;
-    box-shadow: 0 1px 0 0 #6DAFE0;;
+    border-bottom: 1px solid #206be8;
+    -webkit-box-shadow: 0 1px 0 0 #206be8;
+    box-shadow: 0 1px 0 0 #206be8;
 }
 
 .md-form {
@@ -275,7 +275,7 @@ section {
 }
 
 .modal .btn {
-    background-color: #6DAFE0;
+    background-color: #206be8;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
