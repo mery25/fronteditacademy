@@ -1,0 +1,108 @@
+
+// Imports
+@import "mixins";
+
+// Keyframes
+@include stripKeyframe("stripToRight", -100%, 0, 0, 0);
+@include stripKeyframe("stripToLeft", 100%, 0, 0, 0);
+@include stripKeyframe("stripToTop", 0, 0, 100%, 0);
+@include stripKeyframe("stripToBottom", 0, 0, -100%, 0);
+@keyframes skewAnimation {
+    0% {
+        -webkit-transform: skew(30);
+        transform: skew(30);
+    }
+    100% {
+        -webkit-transform: skew(0);
+        transform: skew(0);
+    }
+}
+
+// Variables
+$stripKeyFrames: "stripToRight", "stripToTop", "stripToBottom", "stripToTop", "stripToLeft";
+$block_colors:  #244F75,  #60BFBF,  #8C4B7E,  #F8BB44, #F24B4B;
+$translucid_white: rgba(255, 255, 255, 0.1);
+$lato_font: 'Lato', sans-serif; 
+$font_color: #fff;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.strips {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: stretch;
+    
+
+    &__strip {
+        position: relative;
+        width: 20%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    @for $i from 1 through length($stripKeyFrames) {
+        &__strip:nth-child(#{$i}n) {
+            animation: #{nth($stripKeyFrames, $i)} 2s;
+        }
+    }
+
+}
+
+.strip {
+
+    &__content::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $translucid_white;
+        content: "";
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        transform: skew(30deg);
+        -webkit-transform: skew(30deg);
+        transition-duration: 0.7;
+        transition: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        text-align: center;
+        font-family: $lato_font;
+        color: $font_color;
+    }
+
+    &__heart {
+        margin-left: 1rem;
+        font-size: xx-large;
+        color: $font_color;
+    }
+}
+
+.strips__strip:hover {
+
+    .strip__content::before {
+        animation-name: skewAnimation;
+        -moz-animation-duration: 1s;
+        animation-duration: 1s;
+    }
+}
+
+@include selector_bg(".strips__strip", $block_colors);

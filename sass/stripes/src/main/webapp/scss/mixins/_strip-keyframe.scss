@@ -1,0 +1,14 @@
+// Strip keyframe 
+@mixin stripKeyframe($name, $xOrig, $xDest, $yOrig, $yDest) {
+    @keyframes #{$name} {
+        0% {
+            -webkit-transform: translate3d($xOrig, $yOrig, 0);
+            transform: translate3d($xOrig, $yOrig, 0);
+        }
+        100% {
+            -webkit-transform: translate3d($xDest, $yDest, 0);
+            transform: translate3d($xDest, $yDest, 0);
+        }
+    }
+
+}
