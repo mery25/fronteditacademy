@@ -56,19 +56,19 @@ section {
     line-height: 3;
 }
 
-#loginButton {
+#displayLoginModal {
     padding: .5rem 0.5rem
 }
-#loginButton i {
+#displayLoginModal i {
     font-size: 1.3rem;
     vertical-align: middle;
 }
 
-#loginButton span:hover {
+#displayLoginModal span:hover {
     text-decoration: underline;
 }
 
-#loginButton span {
+#displayLoginModal span {
     border-left: 2px solid#92644C;
     padding-left: .8rem;
     font-size: .9rem;
@@ -224,6 +224,15 @@ section {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
+
+#loginForm .form-group {
+    height: 93px;
+}
+
+#loginForm .form-control {
+    padding: 0 1rem;
+}
+
 .modal-dialog .modal-content {
     border: 0;
     border-radius: .125rem;
@@ -235,7 +244,7 @@ section {
     border: 0;
 }
 
-.md-form input:focus, .md-form input:placeholder-shown { 
+.md-form input:focus { 
     border-bottom: 1px solid #206be8;
     -webkit-box-shadow: 0 1px 0 0 #206be8;
     box-shadow: 0 1px 0 0 #206be8;
@@ -261,7 +270,7 @@ section {
 }
 
 .md-form label {
-    bottom: 2rem;
+    bottom: 5.8rem;
     left: 3rem;
     font-size: 0.8rem;
 }
@@ -289,6 +298,14 @@ section {
     opacity:1;
 }
 
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    padding-right: 0px !important;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+    padding-right: 0px !important;
+}
+
 @media (min-width: 576px) { 
     
     .card-product {
@@ -309,7 +326,7 @@ section {
         margin-right: 8rem;
     }
     
-    #loginButton {
+    #displayLoginModal {
         position: absolute;
         right:0.5rem;
     }
