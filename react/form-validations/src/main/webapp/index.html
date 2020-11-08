@@ -246,21 +246,25 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <form action="#" class="my-4">
+          <form id="contactForm" class="my-4">
             <h4>Get in touch!</h4>
             <div class="form-group">
               <label for="contactNameInput">Name</label>
               <input type="name" class="form-control" id="contactNameInput" placeholder="Enter name">
             </div>
             <div class="form-group">
-              <label for="contactEmailInput">Email address</label>
+              <label for="contactEmailInput">Email address ( * )</label>
               <input type="email" class="form-control" id="contactEmailInput" placeholder="Enter email">
+              <div class="invalid-feedback">
+              </div>
             </div>
-            <div class="form-group" class="contact-message">
-              <label for="contactMessageInput">Message</label>
+            <div id="messageFormGroup" class="form-group" class="contact-message">
+              <label for="contactMessageInput">Message ( * )</label>
               <textarea class="form-control" id="contactMessageInput" cols="30" rows="5"></textarea>
+              <div class="invalid-feedback">
+              </div>
             </div>
-            <button type="submit" class="btn btn-light">Submit</button>
+            <button id="contactButton" type="submit" class="btn btn-light">Submit</button>
           </form>
         </div>
       </div>
@@ -271,7 +275,7 @@
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div  class="modal-content">
+      <div id="loginModalContent" class="modal-content">
         <div class="modal-header text-center">
           <h4 id="loginModalLabel" class="modal-title w-100 font-weight-bold">Sign in</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -279,28 +283,123 @@
           </button>
         </div>
         <div class="modal-body mx-3 pl-0 pr-3">
-          <form id="loginForm">
-            <div class="form-group md-form mb-0 pl-0 pr-3 pl-sm-4 pr-sm-5">
-              <i class="fas fa-envelope prefix grey-text"></i>
-              <label data-error="wrong" data-success="right" for="loginEmailInput">Your email</label>
-              <input type="email" id="loginEmailInput" class="form-control validate" required placeholder="Your email">
-              <div class="invalid-feedback">
+          <form id="loginForm" class="novalidate">
+            <div class="form-group md-form d-flex flex-row mb-0 px-0 px-sm-4">
+              <div class="d-flex flex-column justify-content-center mr-3">
+                <i class="fas fa-envelope prefix grey-text"></i>
+              </div>
+              <div class="d-flex flex-column flex-grow-1">
+                <input type="email" id="loginEmailInput" class="form-control validate order-1" required
+                  placeholder="Your email">
+                <label data-error="wrong" data-success="right" for="loginEmailInput">Your email</label>
+                <div class="invalid-feedback order-3"></div>
               </div>
             </div>
 
-            <div class="form-group md-form mb-0 pl-0 pr-3 pl-sm-4 pr-sm-5">
-              <i class="fas fa-lock prefix grey-text"></i>
-              <label data-error="wrong" data-success="right" for="loginPasswInput">Your password</label>
-              <input type="password" id="loginPasswInput" class="form-control validate" required placeholder="Your password">
-              <div class="invalid-feedback">
+            <div class="form-group md-form d-flex flex-row mb-0 px-0 px-sm-4 mt-2">
+              <div class="d-flex flex-column justify-content-center mr-3">
+                <i class="fas fa-lock prefix grey-text"></i>
+              </div>
+              <div class="d-flex flex-column flex-grow-1">
+                <input type="password" id="loginPasswInput" class="form-control validate order-1" required
+                  placeholder="Your password">
+                <label data-error="wrong" data-success="right" for="loginPasswInput">Your password</label>
+                <div class="invalid-feedback order-3">
+                </div>
               </div>
             </div>
-          </div>
+        </div>
         </form>
         <div class="modal-footer border-0 d-flex flex-column justify-content-center">
           <button id="loginButton" class="btn btn-default">Login</button>
           <small id="forgotPassw" class="form-text text-muted"><a href="#">I forgot my password</a></small>
-          <small id="registerHelp" class="form-text text-muted">I don't have an account yet! <a href="#">Create an
+          <small id="registerHelp" class="form-text text-muted">I don't have an account yet! <a id="registerLink"
+              href="#">Create an
+              account</a></small>
+        </div>
+      </div>
+      <div id="registerModalContent" class="modal-content">
+        <div class="modal-header text-center">
+          <h4 id="registerModalLabel" class="modal-title w-100 font-weight-bold">Sign up</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3 pl-0 pr-3">
+          <form id="registerForm">
+            <div class="form-group md-form d-flex flex-row mb-0 px-0 px-sm-4  mt-2">
+              <div class="d-flex flex-column justify-content-center mr-3">
+                <i class="fas fa-user prefix grey-text"></i>
+              </div>
+              <div class="d-flex flex-column flex-grow-1">
+                <input type="text" id="registerNameInput" class="form-control validate order-1" required
+                  placeholder="Your name">
+                <label data-error="wrong" data-success="right" for="registerNameInput">Your name</label>
+                <div class="invalid-feedback order-3"></div>
+              </div>
+            </div>
+
+            <div class="form-group md-form d-flex flex-row mb-0 px-0 px-sm-4  mt-2">
+              <div class="d-flex flex-column justify-content-center mr-3">
+                <i class="fas fa-envelope prefix grey-text"></i>
+              </div>
+              <div class="d-flex flex-column flex-grow-1">
+                <input type="email" id="registerEmailInput" class="form-control validate order-1" required
+                  placeholder="Your email">
+                <label data-error="wrong" data-success="right" for="registerEmailInput">Your email</label>
+                <div class="invalid-feedback order-3"></div>
+              </div>
+            </div>
+
+            <div class="form-group md-form d-flex flex-row mb-0 px-0 px-sm-4 mt-2">
+              <div class="d-flex flex-column justify-content-center mr-3">
+                <i class="fas fa-lock prefix grey-text"></i>
+              </div>
+              <div class="d-flex flex-column flex-grow-1">
+                <input type="password" id="registerPasswInput" class="form-control validate order-1" required
+                  placeholder="Your password">
+                <label data-error="wrong" data-success="right" for="registerPasswInput">Your password</label>
+                <div class="invalid-feedback order-3"></div>
+              </div>
+            </div>
+
+            <div class="form-group md-form d-flex flex-row mb-0 px-0 px-sm-4 mt-2">
+              <div class="d-flex flex-column justify-content-center mr-3">
+                <i class="fas fa-lock prefix grey-text"></i>
+              </div>
+              <div class="d-flex flex-column flex-grow-1">
+                <input type="password" id="registerConfirmedPasswInput" class="form-control validate order-1" required
+                  placeholder="Confirm password">
+                <label data-error="wrong" data-success="right" for="registerConfirmedPasswInput">Confirm
+                  password</label>
+                <div class="invalid-feedback order-3"></div>
+              </div>
+            </div>
+
+            <div class="form-group pl-sm-4 pr-sm-3 pr-0 d-flex flex-column mt-2">
+              <select id="registerProvinceDropdown" class="form-control my-1 mr-sm-2 order-1" data-dropup-auto="true" required>
+                <option value="" selected disabled hidden>Select your province...</option>
+                <option value="1">Barcelona</option>
+                <option value="2">Girona</option>
+                <option value="3">Lleida</option>
+                <option value="4">Tarragona</option>
+              </select>
+              <label class="my-1 mr-2" for="registerProvinceDropdown">Select your province</label>
+              <div class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-check md-form mb-0 pl-4 pr-0 pl-sm-5">
+              <input type="checkbox" id="registerAgreementChbox" class="form-check-input validate" required>
+              <label data-error="wrong" data-success="right" for="registerAgreementChk" class="form-check-label">I agree
+                all statements in <a href="#">Terms of service</a></label>
+              <div class="invalid-feedback"></div>
+            </div>
+        </div>
+        </form>
+        <div class="modal-footer border-0 d-flex flex-column justify-content-center">
+          <button id="registerButton" class="btn btn-default">Register</button>
+          <small id="registerHelp" class="form-text text-muted">I've already have an account! <a id="loginLink"
+              href="#">Login to my
               account</a></small>
         </div>
       </div>
@@ -313,11 +412,6 @@
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script>
-    $('#loginModal').on('shown.bs.modal', function () {
-      $('#loginEmailInput').trigger('focus')
-    })
-  </script>
   <script src="js/script.js"></script>
 
 </body>

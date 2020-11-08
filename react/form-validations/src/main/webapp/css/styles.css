@@ -202,37 +202,17 @@ section {
     margin: 1rem 1.5rem;
 }
 
+#contactForm .form-group {
+    min-height: 93px;
+    margin-bottom: 0.25px;
+}
+
+#contactForm #messageFormGroup {
+    min-height: 196px;
+    margin-bottom: 0.25px;
+}
+
 /* LOGIN MODAL */
-.md-form {
-    position: relative;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.md-form input {
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    background-color: transparent;
-    border: 0;
-    border-bottom: 1px solid #ced4da;
-    border-radius: 0;
-    outline: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-}
-
-#loginForm .form-group {
-    height: 93px;
-}
-
-#loginForm .form-control {
-    padding: 0 1rem;
-}
-
 .modal-dialog .modal-content {
     border: 0;
     border-radius: .125rem;
@@ -244,43 +224,92 @@ section {
     border: 0;
 }
 
-.md-form input:focus { 
+#loginModal .form-group {
+    height: 90px;
+}
+
+#loginModal .form-control {
+    padding: 0 1rem;
+    box-sizing: border-box !important;
+}
+
+#loginModal .prefix {
+    -webkit-transition: color .2s;
+    transition: color .2s;
+    font-size: 1.75rem;
+}
+
+#loginModal .prefix ~ input {
+    width: calc(100% - 2.5rem);
+    margin-left: 2.5rem;
+}
+
+#loginModal input[type="password"], 
+#loginModal input[type="text"],
+#loginModal input[type="email"] {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #6c757dfa;
+    border-radius: 0;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#loginModal input[type="password"].is-valid:not(:focus), 
+#loginModal input[type="text"].is-valid:not(:focus),
+#loginModal input[type="email"].is-valid:not(:focus) {
+    border-bottom: 1px solid #5DBC73;
+    -webkit-box-shadow: 0 1px 0 0 #5DBC73;
+    box-shadow: 0 1px 0 0 #5DBC73;
+}
+
+#loginModal input[type="password"].is-invalid:not(:focus), 
+#loginModal input[type="text"].is-invalid:not(:focus),
+#loginModal input[type="email"].is-invalid:not(:focus) {
+    border-bottom: 1px solid #dc3545;
+    -webkit-box-shadow: 0 1px 0 0 #dc3545;
+    box-shadow: 0 1px 0 0 #dc3545;
+}
+
+#loginModal input:focus[type="password"],
+#loginModal input:focus[type="text"],
+#loginModal input:focus[type="email"] {
     border-bottom: 1px solid #206be8;
     -webkit-box-shadow: 0 1px 0 0 #206be8;
     box-shadow: 0 1px 0 0 #206be8;
 }
 
-.md-form {
-    position: relative;
+#loginModalinput::placeholder{
+    color: #6c757dfa;
+    font-size: 0.98rem;
 }
-.md-form label {
+
+#loginModal label {
+    margin: 0;
+}
+
+#loginModal label[for$="Input"], #loginModal label[for$="Dropdown"] {
     color: transparent;
-    position: absolute;
-}
-
-.md-form .prefix {
-    position: absolute;
-    -webkit-transition: color .2s;
-    transition: color .2s;
-    top: .25rem;
-    font-size: 1.75rem;
-}
-.md-form input::placeholder{
-    color: #ced4da;
-}
-
-.md-form label {
-    bottom: 5.8rem;
-    left: 3rem;
     font-size: 0.8rem;
-}
-.md-form input:not(:placeholder-shown) + label {
-    color: #ced4da;
-}
+} 
 
-.md-form .prefix ~ input {
-    width: calc(100% - 2.5rem);
-    margin-left: 2.5rem;
+#loginModal input[type="password"]:not(:placeholder-shown) + label,
+#loginModal input[type="text"]:not(:placeholder-shown) + label,
+#loginModal input[type="email"]:not(:placeholder-shown) + label {
+    color: #6c757dfa;
+} 
+
+#loginModal input:focus[type="password"]:not(:placeholder-shown) + label,
+#loginModal input:focus[type="text"]:not(:placeholder-shown) + label,
+#loginModal input:focus[type="email"]:not(:placeholder-shown) + label {
+    color: #206be8;
 }
 
 .modal .btn {
@@ -291,7 +320,7 @@ section {
     border: none;
     cursor: pointer;
     width: 100%;
-    opacity: 0.9;      
+    opacity: 0.9; 
 }
 
 .modal .btn:hover {
@@ -305,6 +334,41 @@ section {
 .form-control.is-valid, .was-validated .form-control:valid {
     padding-right: 0px !important;
 }
+
+#registerModalContent {
+    display: none;
+}
+
+#registerModalContent .form-check {
+    padding-left: 48px;
+}
+
+#registerProvinceDropdown, #registerProvinceDropdown option {
+    color: #6c757dfa;
+} 
+
+#registerProvinceDropdown:invalid, #registerProvinceDropdown[value=""] {
+    color: #6c757dfa;
+} 
+
+select:valid + label {
+    color: #6c757dfa !important;
+}
+
+select:focus + label {
+    color: #206be8 !important;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #f3969a;
+}
+
+select:hover > option:hover {
+    background: #206be8 !important;
+  }
 
 @media (min-width: 576px) { 
     
