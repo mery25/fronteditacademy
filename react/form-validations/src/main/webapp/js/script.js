@@ -26,13 +26,13 @@ function isPasswordValid(passwordValue) {
 function setInvalidValidation(validatedInput, errorMsg) {
     validatedInput.classList.remove("is-valid")
     validatedInput.classList.add("is-invalid")
-    validatedInput.nextElementSibling.innerText = errorMsg
+    validatedInput.nextElementSibling.nextElementSibling.innerText = errorMsg
 }
 
 function setValidValidation(validatedInput) {
     validatedInput.classList.remove("is-invalid")
     validatedInput.classList.add("is-valid")
-    validatedInput.nextElementSibling.innerText = ''
+    validatedInput.nextElementSibling.nextElementSibling.innerText = ''
 }
 
 function validateEmail(emailInput) {
@@ -56,6 +56,15 @@ function validatePassword(passwordInput) {
         setInvalidValidation(passwordInput, 'Must have at least 8 characters and contain an Uppercase letter a lower case letter and a number')
     } else {
        setValidValidation(passwordInput)
+    }
+}
+
+function validateMessage(messageInput) {
+    var messageValue = messageInput.value
+    if (!messageValue) {
+        setInvalidValidation(messageInput, 'Message is required')
+    } else {
+       setValidValidation(messageInput)
     }
 }
 
@@ -86,11 +95,13 @@ function initLoginFormValidation() {
 }
 
 function initContactFormValidation() {
-    var emailControl =  document.getElementById("loginEmailInput")
-    var passwordControl =  document.getElementById("loginPasswInput")
-    $("#loginButton").click(function(event) {
+    var emailControl =  document.getElementById("contactEmailInput")
+    var messageControl =  document.getElementById("contactMessageInput")
+    
+    $("#contactButton").click(function(event) {
+        event.preventDefault()
         validateEmail(emailControl)
-        validatePassword(passwordControl)
+        validateMessage(messageControl)
 
         emailControl.addEventListener("change", function(event) {
             validateEmail(event.target)
@@ -100,22 +111,48 @@ function initContactFormValidation() {
             validateEmail(event.target)
         }, false)
 
-        passwordControl.addEventListener("change", function(event) {
-            validatePassword(event.target)
+        messageControl.addEventListener("change", function(event) {
+            validateMessage(event.target)
         }, false)
     
-        passwordControl.addEventListener("input", function(event) {
-            validatePassword(event.target)
+        messageControl.addEventListener("input", function(event) {
+            validateMessage(event.target)
         }, false)
 
     })
 }
+
+function isVisible(modalContent) {
+    return modalContent.css('display') != 'none';
 }
 
 function initRegisterFormValidation() {
     
 }
 $(document).ready(function() {
+    $('#loginModal').on('shown.bs.modal', function () {
+        var registerModalContent = $('#registerModalContent')
+        var loginModalContent = $('#loginModalContent')
+
+        if (isVisible(loginModalContent)) {
+            $('#loginEmailInput').trigger('focus')
+        } else {
+            $('#registerNameInput').trigger('focus')
+        }
+        
+        
+    })
+    $("#registerLink").click(function(event) {
+        $("#loginModalContent").hide()
+        $("#registerModalContent").css("display", "flex")
+        $('#registerNameInput').trigger('focus')
+    })
+    $("#loginLink").click(function(event) {
+        $("#registerModalContent").hide()
+        $("#loginModalContent").css("display", "flex")
+        $('#loginEmailInput').trigger('focus')
+    })
+
     initLoginFormValidation()
     initContactFormValidation()
     initRegisterFormValidation()
