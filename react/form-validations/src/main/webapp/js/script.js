@@ -26,13 +26,15 @@ function isPasswordValid(passwordValue) {
 function setInvalidValidation(validatedInput, errorMsg) {
     validatedInput.classList.remove("is-valid")
     validatedInput.classList.add("is-invalid")
-    validatedInput.nextElementSibling.nextElementSibling.innerText = errorMsg
+    var invalidFeedback = validatedInput.parentNode.getElementsByClassName('invalid-feedback')
+    invalidFeedback.innerText = errorMsg
 }
 
 function setValidValidation(validatedInput) {
     validatedInput.classList.remove("is-invalid")
     validatedInput.classList.add("is-valid")
-    validatedInput.nextElementSibling.nextElementSibling.innerText = ''
+    var invalidFeedback = validatedInput.parentNode.getElementsByClassName('invalid-feedback')
+    invalidFeedback.innerText = ''
 }
 
 function validateEmail(emailInput) {
@@ -132,6 +134,10 @@ function initLoginFormValidation() {
             validatePassword(event.target)
         }, false)
 
+        if (loginForm.checkValidity()) {
+            swal("Welcome!", "You logged in succesfully", "success")
+        }
+        
     })
 }
 
@@ -159,6 +165,10 @@ function initContactFormValidation() {
         messageControl.addEventListener("input", function(event) {
             validateMessage(event.target)
         }, false)
+
+        if (contactForm.checkValidity()) {
+            swal("", "The message have been sent!", "success")
+        }
 
     })
 }
@@ -210,6 +220,10 @@ function initRegisterFormValidation() {
         addInputEventListeners(agreementControl, function(event) {
             validateAgreement(event.target)
         })
+
+        if (registerForm.checkValidity()) {
+            swal(`Welcome ${nameControl.value}!`, "You have a new account", "success")
+        }
 
     })
 }
