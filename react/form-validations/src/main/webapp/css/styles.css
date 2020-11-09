@@ -368,7 +368,7 @@ select:focus + label {
 
 select:hover > option:hover {
     background: #206be8 !important;
-  }
+}
 
 @media (min-width: 576px) { 
     
