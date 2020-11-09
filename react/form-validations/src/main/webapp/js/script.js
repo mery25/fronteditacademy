@@ -68,6 +68,47 @@ function validateMessage(messageInput) {
     }
 }
 
+function validateRequiredInput(input, inputName) {
+    var value = input.value
+    if (!value) {
+        setInvalidValidation(input, inputName + ' is required')
+    } else {
+       setValidValidation(input)
+    }
+}
+
+function validateConfirmedPassword(pwdInput, confirmedPwdInput) {
+    var passwordValue = pwdInput.value
+    var confirmedPwdValue = confirmedPwdInput.value
+    var isValidPwd = false
+    if (!passwordValue) {
+        setInvalidValidation(pwdInput, 'Password is required')
+    }
+    else if (!isPasswordValid(pwdInput.value)) {
+        setInvalidValidation(pwdInput, 'Must have at least 8 characters and contain an Uppercase letter a lower case letter and a number')
+    } else {
+        setValidValidation(pwdInput)
+        isValidPwd = true
+    }
+    
+    if (!isValidPwd) return
+
+    if (passwordValue !== confirmedPwdValue) {
+        setInvalidValidation(confirmedPwdInput, 'Confirmed password doesn\'t match password')
+    } else {
+        setValidValidation(confirmedPwdInput)
+    }
+}
+
+function validateAgreement(checkbox) {
+    if (!checkbox.checked) {
+        setInvalidValidation(checkbox, 'Agree Terms of Service is required')
+    } else {
+       setValidValidation(checkbox)
+    }
+}
+
+
 function initLoginFormValidation() {
     var emailControl =  document.getElementById("loginEmailInput")
     var passwordControl =  document.getElementById("loginPasswInput")
@@ -126,9 +167,53 @@ function isVisible(modalContent) {
     return modalContent.css('display') != 'none';
 }
 
-function initRegisterFormValidation() {
-    
+function addInputEventListeners(control, func) {
+    control.addEventListener("change", func, false)
+    control.addEventListener("input", func, false)
 }
+function initRegisterFormValidation() {
+    var nameControl =  document.getElementById("registerNameInput")
+    var emailControl =  document.getElementById("registerEmailInput")
+    var passwordControl =  document.getElementById("registerPwdInput")
+    var confirmedPwdControl =  document.getElementById("registerConfirmedPwdInput")
+    var provinceControl =  document.getElementById("registerProvinceDropdown")
+    var agreementControl =  document.getElementById("registerAgreementChk")
+
+    $("#registerButton").click(function(event) {
+        event.preventDefault()
+        validateRequiredInput(nameControl, 'Name')
+        validateEmail(emailControl)
+        validateConfirmedPassword(passwordControl, confirmedPwdControl)
+        validateRequiredInput(provinceControl, 'Province')
+        validateAgreement(agreementControl)
+
+        addInputEventListeners(nameControl, function(event) {
+            validateRequiredInput(event.target)
+        })
+
+        addInputEventListeners(emailControl, function(event) {
+            validateEmail(event.target)
+        })
+
+        addInputEventListeners(passwordControl, function(event) {
+            validateConfirmedPassword(event.target, confirmedPwdControl)
+        })
+
+        addInputEventListeners(confirmedPwdControl, function(event) {
+            validateConfirmedPassword(passwordControl, event.target)
+        })
+ 
+        addInputEventListeners(provinceControl, function(event) {
+            validateRequiredInput(event.target, 'Province')
+        })
+
+        addInputEventListeners(agreementControl, function(event) {
+            validateAgreement(event.target)
+        })
+
+    })
+}
+
 $(document).ready(function() {
     $('#loginModal').on('shown.bs.modal', function () {
         var registerModalContent = $('#registerModalContent')
