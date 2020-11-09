@@ -246,21 +246,21 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <form id="contactForm" class="my-4">
+          <form id="contactForm" class="my-4 novalidate">
             <h4>Get in touch!</h4>
             <div class="form-group">
               <label for="contactNameInput">Name</label>
-              <input type="name" class="form-control" id="contactNameInput" placeholder="Enter name">
+              <input type="name" class="form-control" id="contactNameInput" placeholder="Enter name" validate>
             </div>
             <div class="form-group">
               <label for="contactEmailInput">Email address ( * )</label>
-              <input type="email" class="form-control" id="contactEmailInput" placeholder="Enter email">
+              <input type="email" class="form-control" id="contactEmailInput" placeholder="Enter email" validate required>
               <div class="invalid-feedback">
               </div>
             </div>
             <div id="messageFormGroup" class="form-group" class="contact-message">
               <label for="contactMessageInput">Message ( * )</label>
-              <textarea class="form-control" id="contactMessageInput" cols="30" rows="5"></textarea>
+              <textarea class="form-control" id="contactMessageInput" cols="30" rows="5" required></textarea>
               <div class="invalid-feedback">
               </div>
             </div>
@@ -412,6 +412,7 @@
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="js/script.js"></script>
 
 </body>
