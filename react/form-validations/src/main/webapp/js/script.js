@@ -110,6 +110,14 @@ function validateAgreement(checkbox) {
     }
 }
 
+function isVisible(modalContent) {
+    return modalContent.css('display') != 'none';
+}
+
+function addInputEventListeners(control, func) {
+    control.addEventListener("change", func, false)
+    control.addEventListener("input", func, false)
+}
 
 function initLoginFormValidation() {
     var emailControl =  document.getElementById("loginEmailInput")
@@ -118,21 +126,13 @@ function initLoginFormValidation() {
         validateEmail(emailControl)
         validatePassword(passwordControl)
 
-        emailControl.addEventListener("change", function(event) {
+        addInputEventListeners(emailControl, function(event) {
             validateEmail(event.target)
-        }, false)
-    
-        emailControl.addEventListener("input", function(event) {
-            validateEmail(event.target)
-        }, false)
+        })
 
-        passwordControl.addEventListener("change", function(event) {
+        addInputEventListeners(passwordControl, function(event) {
             validatePassword(event.target)
-        }, false)
-    
-        passwordControl.addEventListener("input", function(event) {
-            validatePassword(event.target)
-        }, false)
+        })
 
         if (loginForm.checkValidity()) {
             swal("Welcome!", "You logged in succesfully", "success")
@@ -149,22 +149,14 @@ function initContactFormValidation() {
         event.preventDefault()
         validateEmail(emailControl)
         validateMessage(messageControl)
-
-        emailControl.addEventListener("change", function(event) {
+        
+        addInputEventListeners(emailControl, function(event) {
             validateEmail(event.target)
-        }, false)
-    
-        emailControl.addEventListener("input", function(event) {
-            validateEmail(event.target)
-        }, false)
+        })
 
-        messageControl.addEventListener("change", function(event) {
+        addInputEventListeners(messageControl, function(event) {
             validateMessage(event.target)
-        }, false)
-    
-        messageControl.addEventListener("input", function(event) {
-            validateMessage(event.target)
-        }, false)
+        })
 
         if (contactForm.checkValidity()) {
             swal("", "The message have been sent!", "success")
@@ -173,14 +165,6 @@ function initContactFormValidation() {
     })
 }
 
-function isVisible(modalContent) {
-    return modalContent.css('display') != 'none';
-}
-
-function addInputEventListeners(control, func) {
-    control.addEventListener("change", func, false)
-    control.addEventListener("input", func, false)
-}
 function initRegisterFormValidation() {
     var nameControl =  document.getElementById("registerNameInput")
     var emailControl =  document.getElementById("registerEmailInput")
@@ -230,7 +214,6 @@ function initRegisterFormValidation() {
 
 $(document).ready(function() {
     $('#loginModal').on('shown.bs.modal', function () {
-        var registerModalContent = $('#registerModalContent')
         var loginModalContent = $('#loginModalContent')
 
         if (isVisible(loginModalContent)) {
