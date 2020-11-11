@@ -12,9 +12,7 @@ function paintNode(node) {
 function paintRatings(ratings, activeRating) {
     var idxActiveRating = activeRating.id.substr(7)
     for (let i = ratings.length - idxActiveRating; i >= 0; i--) {
-        setTimeout(() => {
-            paintNode(ratings[i].firstElementChild)
-        }, (ratings.length - i) * 90)
+        paintNode(ratings[i].firstElementChild)
     }
 }
 function initRatingsListeners(ratings) {
