@@ -1,38 +1,3 @@
-/* @keyframes animate { 
-    0%, 
-    40%, 
-    100% { 
-      transform: scale(0.2); 
-    } 
-    20% { 
-      transform: scale(1); 
-    } 
-  } 
-
-body {
-    background-color: #000;
-}
-
-.ratings ul {
-    list-style-type: none;
-}
-.ratings ul li { 
-    display:inline;
-} 
-
-.ratings ul li i { 
-    font-size: 4rem;
-    color: rgb(228, 228, 128);
-} 
-
-.ratings ul li i:hover { 
-    font-size: 4rem;
-    border: rgb(223, 223, 175);
-    color: white;
-}  */
-
-
-
 body {
     margin:0;
     padding:0;
