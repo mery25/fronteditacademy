@@ -47,17 +47,29 @@ ul li a:before {
     z-index: -1;
 }
   
-ul li a:hover:before {
+ul:hover > li a:before {
     transform: scale(1.2);
     box-shadow: 0 0 15px #ffa502;
     filter: blur(3px);
 }
-  
-ul li a:hover {
+
+ul:hover > li a {
     color: #ddb771;
     box-shadow: 0 0 15px #ffa502;
     text-shadow: 0 0 15px #ffa502;
 }
+
+ul li:hover ~ li > a {
+    color: #666;
+    box-shadow: none;
+    text-shadow: none;
+} 
+
+ul li:hover ~ li > a:before {
+    transform: scale(.9);
+    box-shadow: none;
+    filter: none;
+} 
 
 .active-rating {
     color: #ddb771;
